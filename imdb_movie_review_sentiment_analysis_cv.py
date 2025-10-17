@@ -8,6 +8,8 @@ for performance evaluation.
 """
 #Import re
 import re
+#Import save pipeline
+from joblib import dump
 #Import Pandas
 import pandas as pd
 #Import split and CV
@@ -77,3 +79,7 @@ for metric in scoring:
         f"{metric.capitalize():<10} "
         f"mean±std: {mean:.4f} ± {std:.4f}  -> {metric_results}"
     )
+
+#Save pipeline
+PIPELINE_PATH = "models/imdb_logreg_cv_pipeline.joblib"
+dump(pipeline, PIPELINE_PATH)
